@@ -210,8 +210,9 @@ bool ReadTwoImageToOneDatum(const std::string filename1, const int label1, const
 	        for (int w = 0; w < datum_width; ++w) {
 	          for (int c = 0; c < cv_img1.channels(); ++c) {
 	            int datum_index = (c * datum_height + h) * datum_width + w;
-	            buffer[datum_index] = static_cast<char>(ptr1[img_index++]);
-	            buffer[datum_index + img1_size] = static_cast<char>(ptr2[img_index++]);
+	            buffer[datum_index] = static_cast<char>(ptr1[img_index]);
+	            buffer[datum_index + img1_size] = static_cast<char>(ptr2[img_index]);
+	            img_index++;
 	          }
 	        }
 	      }
